@@ -1,0 +1,227 @@
+/* ==================================================
+   Colorful stylesheet for College Event System
+   - CSS variables for palette
+   - Modern cards, buttons, nav, forms
+   - Accessible contrasts and responsive tweaks
+   ==================================================*/
+
+:root {
+  --bg-1: #fff7f2; /* pale peach */
+  --bg-2: #f0f7ff; /* pale blue */
+  --accent-1: #ff6b6b; /* coral */
+  --accent-2: #6b5bff; /* violet */
+  --accent-3: #00c2a8; /* teal */
+  --accent-4: #ffd166; /* warm yellow */
+  --muted: #4b5563; /* muted text */
+  --card-bg: rgba(255,255,255,0.85);
+  --glass-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+}
+
+/* === Global Styles === */
+html, body {
+  height: 100%;
+}
+body {
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin: 0;
+  padding: 0;
+  color: var(--muted);
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(107,91,255,0.08), transparent),
+              radial-gradient(1000px 500px at 95% 90%, rgba(255,107,107,0.06), transparent),
+              linear-gradient(135deg, var(--bg-1), var(--bg-2));
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout helpers */
+.container {
+  width: 92%;
+  max-width: 1100px;
+  margin: 36px auto;
+  padding: 28px;
+  background: var(--card-bg);
+  border-radius: 14px;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(6px) saturate(120%);
+}
+
+/* === Header / Hero === */
+h1 {
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  text-align: center;
+  color: var(--accent-2);
+  margin: 6px 0 6px 0;
+  letter-spacing: -0.02em;
+}
+
+h1::before {
+  content: "🎓 ";
+  filter: drop-shadow(0 2px 6px rgba(107,91,255,0.25));
+}
+
+p.lead {
+  text-align: center;
+  color: #374151;
+  font-size: 1.05rem;
+  margin-top: 6px;
+}
+
+/* === Navigation === */
+.nav {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 16px 0 26px 0;
+}
+
+.nav a {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  box-shadow: 0 6px 18px rgba(107,91,255,0.12);
+}
+
+.nav a.secondary {
+  background: linear-gradient(90deg, #00c2a8, #ffd166);
+  color: #073642;
+}
+
+.nav a:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.14);
+}
+
+/* === Sections & Cards === */
+.section {
+  margin: 20px 0;
+  padding: 18px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(107,91,255,0.08), rgba(255,107,107,0.04));
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.section h2 {
+  margin: 8px 0 10px 0;
+  color: var(--accent-3);
+}
+
+.card-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+  padding: 16px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,250,255,0.7));
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  box-shadow: 0 8px 26px rgba(15, 23, 42, 0.06);
+}
+
+.card h3 { color: var(--accent-2); margin: 0 0 6px 0; }
+.card p { margin: 0; color: #475569; }
+
+/* Accent badges */
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: white;
+}
+.badge.pink { background: linear-gradient(90deg,#ff6b6b,#ff8a80); }
+.badge.purple { background: linear-gradient(90deg,#6b5bff,#7c4dff); }
+.badge.teal { background: linear-gradient(90deg,#00c2a8,#00e6c3); }
+
+/* === Buttons & Forms === */
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent-1));
+  box-shadow: 0 8px 20px rgba(107,91,255,0.12);
+  border: none;
+  cursor: pointer;
+}
+
+.btn.alt {
+  background: linear-gradient(90deg, var(--accent-3), var(--accent-4));
+  color: #023047;
+}
+
+input[type="text"], input[type="email"], select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: white;
+  box-shadow: inset 0 1px 3px rgba(2,6,23,0.02);
+  margin: 6px 0 12px 0;
+}
+
+label { font-weight: 600; color: #334155; }
+
+/* === Tables / Lists === */
+.events-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+.events-table th, .events-table td {
+  padding: 10px 12px;
+  text-align: left;
+}
+.events-table thead th {
+  background: linear-gradient(90deg,#f8fafc,#eef2ff);
+  color: #0f172a;
+  border-bottom: 2px solid rgba(15,23,42,0.06);
+}
+.events-table tbody tr:nth-child(even) { background: rgba(99,102,241,0.03); }
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 18px;
+  margin-top: 26px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(107,91,255,0.12), rgba(255,213,102,0.08));
+  color: #04203a;
+}
+
+/* === Small screens === */
+@media (max-width: 640px) {
+  .container { padding: 18px; }
+  .nav a { padding: 8px 10px; font-size: 0.95rem; }
+  h1 { font-size: 1.6rem; }
+}
+
+/* Accessibility focus states */
+a:focus, .btn:focus, input:focus, select:focus {
+  outline: 3px solid rgba(99,102,241,0.18);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* End of stylesheet */
+.password-wrapper {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  user-select: none;
+}

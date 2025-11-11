@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="./assests/styles/style.css" />
+</head>
+<body>
+  <h1 class="page-title">Admin Panel - Manage Events</h1>
+
+  <!-- LOGIN SECTION -->
+  <div id="login-section" class="container">
+    <h2>Admin Login</h2>
+    <form id="loginForm" class="form-glass">
+      <input type="text" id="adminUser" placeholder="Username" required />
+      <div class="password-wrapper">
+        <input type="password" id="adminPass" placeholder="Password" required />
+        <span class="eye-icon" onclick="togglePassword()">👁️</span>
+      </div>
+      <button type="button" class="btn" onclick="loginAdmin()">Login</button>
+    </form>
+  </div>
+
+  <!-- ADMIN PANEL -->
+  <div id="admin-section" class="container" style="display:none;">
+    <form id="eventForm" class="form-glass">
+      <input type="text" id="eid" placeholder="Event ID" required />
+      <input type="text" id="ename" placeholder="Event Name" required />
+      <input type="text" id="category" placeholder="Category" required />
+      <input type="date" id="date" required />
+      <input type="text" id="venue" placeholder="Venue" required />
+      <input type="time" id="time" required />
+      <button type="button" class="btn glow" onclick="addEvent()">Add Event</button>
+    </form>
+
+    <h2>Current Events</h2>
+    <div id="eventList" class="event-grid"></div>
+    <a href="index.html" class="btn outline">Back to Home</a>
+  </div>
+
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="./assests/scripts/script.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      renderEvents();
+    });
+  </script>
+</body>
+</html>
